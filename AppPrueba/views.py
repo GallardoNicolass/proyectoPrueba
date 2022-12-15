@@ -12,3 +12,18 @@ def curso(request):
     cadena_texto=f"curso guardado: Nombre: {curso.nombre}, comision: {curso.comision}"
     return HttpResponse(cadena_texto)
 
+def cursos(request):
+    return render(request, "AppPrueba/cursos.html")
+
+def estudiantes(request):
+    return render(request, "AppPrueba/estudiantes.html")
+
+def profesores(request):
+    return render(request, "AppPrueba/profesores.html")
+
+def entregables(request):
+    return render(request, "AppPrueba/entregables.html")
+
+def inicio(request):
+    return render(request, "AppPrueba/inicio.html")
+

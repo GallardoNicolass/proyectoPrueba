@@ -1,6 +1,14 @@
-from django.urls import path, include
+from django.urls import path
+from .views import *
 
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
     path('curso/', curso),
+    path("cursos/", cursos),
+    path("estudiantes/", estudiantes),
+    path("profesores/", profesores),
+    path("entregables/", entregables),
+    path("", inicio),
+
+    
+]   
