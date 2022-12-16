@@ -7,7 +7,7 @@ from django.http import HttpResponse
 
 def curso(request):
 
-    curso= Curso(nombre="JavaScript", comision=123456)
+    curso= Curso(nombre="JavaScript", comision=34645)
     curso.save()
     cadena_texto=f"curso guardado: Nombre: {curso.nombre}, comision: {curso.comision}"
     return HttpResponse(cadena_texto)
