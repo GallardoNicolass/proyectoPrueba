@@ -1,28 +1,18 @@
 from django.shortcuts import render
-from .models import Curso, Profesor
+from .models import *
 from django.http import HttpResponse
 
 # Create your views here.
 
 
-def curso(request):
+def empleados(request):
+    return render(request, "AppPrueba/empleados.html")
 
-    curso= Curso(nombre="JavaScript", comision=34645)
-    curso.save()
-    cadena_texto=f"curso guardado: Nombre: {curso.nombre}, comision: {curso.comision}"
-    return HttpResponse(cadena_texto)
+def gerentes(request):
+    return render(request, "AppPrueba/gerentes.html")
 
-def cursos(request):
-    return render(request, "AppPrueba/cursos.html")
-
-def estudiantes(request):
-    return render(request, "AppPrueba/estudiantes.html")
-
-def profesores(request):
-    return render(request, "AppPrueba/profesores.html")
-
-def entregables(request):
-    return render(request, "AppPrueba/entregables.html")
+def encargados(request):
+    return render(request, "AppPrueba/encargados.html")
 
 def inicio(request):
     return render(request, "AppPrueba/inicio.html")

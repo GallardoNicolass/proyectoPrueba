@@ -3,11 +3,10 @@ from .views import *
 
 
 urlpatterns = [
-    path('curso/', curso),
-    path("cursos/", cursos, name="cursos"),
-    path("estudiantes/", estudiantes, name= "estudiantes"),
-    path("profesores/", profesores, name="profesores"),
-    path("entregables/", entregables, name="entregables"),
+    
+    path("empleados/", empleados, name= "empleados"),
+    path("gerentes/", gerentes, name="gerentes"),
+    path("encargados/", encargados, name="encargados"),
     path("", inicio, name="inicio"),
 
     
