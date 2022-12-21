@@ -11,6 +11,8 @@ urlpatterns = [
     path("empleadoFormulario/", empleadoFormulario, name="empleadoFormulario"),
     path("gerenteFormulario/", gerenteFormulario, name="gerenteFormulario"),
     path("encargadoFormulario/", encargadoFormulario, name="encargadoFormulario"),
+    path("busquedaLegajo/", busquedaLegajo, name="busquedaLegajo"),
+    path("buscar/", buscar, name="buscar"),
     
 
     

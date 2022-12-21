@@ -1,0 +1,20 @@
+{% extends "AppPrueba/padre.html" %}
+
+{% load static %}
+
+{% block titulo %}
+<h1 class="mb-5">FORMULARIO DE EMPLEADOS </h1>
+{% endblock %}
+
+{% block contenido_que_cambia %}
+
+<h3>{{ mensaje }}</h3>
+
+<form action="{% url 'buscar' %}" method="GET">
+
+<input type="number" name="legajo" id="legajo" placeholder="INSERTE LEGAJO">
+<input type="submit" value="buscar legajo">
+
+</form>
+
+{% endblock %}

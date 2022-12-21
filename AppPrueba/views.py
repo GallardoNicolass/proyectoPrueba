@@ -40,7 +40,7 @@ def empleadoFormulario(request):
             apellido= informacion["apellido"]
             legajo= informacion["legajo"]
             empleado= Empleado(nombre=nombre, apellido=apellido, legajo=legajo)
-            empleado.save
+            empleado.save()
             return render(request, "AppPrueba/inicio.html", {"mensaje": "Emplado guardado correctamente"})
         else:
             return render(request, "AppPrueba/empleadoFormulario.html" ,{"form": form, "mensaje": "informacion no valida"})
@@ -61,7 +61,7 @@ def gerenteFormulario(request):
             apellido= informacion["apellido"]
             legajo= informacion["legajo"]
             gerente= Gerente(nombre=nombre, apellido=apellido, legajo=legajo)
-            gerente.save
+            gerente.save()
             return render(request, "AppPrueba/inicio.html", {"mensaje": "Gerente guardado correctamente"})
         else:
             return render(request, "AppPrueba/gerenteFormulario.html" ,{"form": form, "mensaje": "informacion no valida"})
@@ -81,7 +81,7 @@ def encargadoFormulario(request):
             apellido= informacion["apellido"]
             sucursal= informacion["sucursal"]
             encargado= Encargado(nombre=nombre, apellido=apellido, sucursal=sucursal)
-            encargado.save
+            encargado.save()
             return render(request, "AppPrueba/inicio.html", {"mensaje": "Encargado guardado correctamente"})
         else:
             return render(request, "AppPrueba/encargadoFormulario.html" ,{"form": form, "mensaje": "informacion no valida"})
@@ -89,4 +89,24 @@ def encargadoFormulario(request):
     else:
         formulario= EncargadoForm()
         return render (request, "AppPrueba/encargadoFormulario.html", {"form": formulario})
+
+
+
+
+def busquedaLegajo(request):
+    return render(request, "AppPrueba/busquedaLegajo.html")
+
+
+def buscar(request):
+
+    legajo= request.GET["legajo"]
+    if legajo!="":
+
+        empleados= Empleado.objects.filter(legajo=legajo)
+        return render(request, "AppPrueba/resultadosBusqueda.html", {"empleados": empleados})
+    else:
+        return render(request, "AppPrueba/busquedaLegajo.html", {"mensaje": "Che ingresa una comision para buscar"})
+
+    
+
 

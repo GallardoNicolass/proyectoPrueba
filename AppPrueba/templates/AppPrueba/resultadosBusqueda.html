@@ -1,0 +1,28 @@
+{% extends "AppPrueba/padre.html" %}
+
+{% load static %}
+
+{% block titulo %}
+<h1 class="mb-5">resultados de la busqueda de empleados</h1>
+{% endblock %}
+
+{% block contenido_que_cambia %}
+
+{% if empleados %}
+
+<h2>LISTADO DE CURSOS</h2>
+{% for Empleado in empleados %}
+
+<h3>{{ Empleado.nombre }} -  {{ Empleado.apellido }} - {{ Empleado.legajo }}</h3>
+
+{% endfor %}
+
+{% else %}
+
+<h2>NO HAY EMPLEADOS</h2>
+
+{% endif %}
+
+
+
+{% endblock %}
