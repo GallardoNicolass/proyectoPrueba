@@ -102,7 +102,7 @@ def buscar(request):
     legajo= request.GET["legajo"]
     if legajo!="":
 
-        empleados= Empleado.objects.filter(legajo=legajo)
+        empleados= Empleado.objects.filter(legajo__icontains=legajo)
         return render(request, "AppPrueba/resultadosBusqueda.html", {"empleados": empleados})
     else:
         return render(request, "AppPrueba/busquedaLegajo.html", {"mensaje": "Che ingresa una comision para buscar"})
