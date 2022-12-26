@@ -3,9 +3,16 @@
 {% load static %}
 
 {% block titulo %}
-<h1 class="mb-5">Bienvenidos a la seccion empleados</h1>
+<h1 class="mb-5">Listado de empleados</h1>
 {% endblock %}
 
 {% block contenido_que_cambia %}
-<h1>aki estan los empleados </h1>
+
+<ul>
+    {% for empleado in empleados %}
+    <li>{{ empleado.nombre }}  {{ empleado.apellido }} -  {{ empleado.legajo }}</li>
+    {% endfor %}
+
+
+</ul>
 {% endblock %}

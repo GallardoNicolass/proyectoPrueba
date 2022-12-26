@@ -105,7 +105,17 @@ def buscar(request):
         empleados= Empleado.objects.filter(legajo__icontains=legajo)
         return render(request, "AppPrueba/resultadosBusqueda.html", {"empleados": empleados})
     else:
-        return render(request, "AppPrueba/busquedaLegajo.html", {"mensaje": "Che ingresa una comision para buscar"})
+        return render(request, "AppPrueba/busquedaLegajo.html", {"mensaje": "che ingresa un legajo"})
+        
+
+
+
+def leerEmpleados(request):
+    
+    empleados=Empleado.objects.all()
+    return render(request, "AppPrueba/empleados.html", {"empleados": empleados})
+
+
 
     
 
