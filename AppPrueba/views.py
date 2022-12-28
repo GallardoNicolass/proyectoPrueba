@@ -41,6 +41,8 @@ def empleadoFormulario(request):
             legajo= informacion["legajo"]
             empleado= Empleado(nombre=nombre, apellido=apellido, legajo=legajo)
             empleado.save()
+            empleados=Empleado.objects.all()
+            return render(request, "AppPrueba/empleados.html" ,{"empleados":empleados, "mensaje": "Empleado guardado correctamente"})
             return render(request, "AppPrueba/inicio.html", {"mensaje": "Emplado guardado correctamente"})
         else:
             return render(request, "AppPrueba/empleadoFormulario.html" ,{"form": form, "mensaje": "informacion no valida"})
@@ -114,6 +116,21 @@ def leerEmpleados(request):
     
     empleados=Empleado.objects.all()
     return render(request, "AppPrueba/empleados.html", {"empleados": empleados})
+
+def eliminarEmpleado(request, id):
+    empleado=Empleado.objects.get(id=id)
+    empleado.delete()
+    empleados=Empleado.objects.all()
+    return render(request, "AppPrueba/empleados.html", {"empleados": empleados, "mensaje": "Emplado eliminado"})
+
+
+def editarEmpleado(request, id):
+    empleado:Empleado.objects.get(id=id)
+    if request.method=="POST":
+        pass
+    else: 
+        formulario= EmpleadoForm(initial={"nombre":Empleado.nombre, "apellido":Empleado.apellido, "legajo":Empleado.legajo})
+        return render(request, "AppPrueba/editarEmpleado.html", {"form": formulario, "Empleado": Empleado})
 
 
 

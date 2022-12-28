@@ -3,16 +3,22 @@
 {% load static %}
 
 {% block titulo %}
-<h1 class="mb-5">Listado de empleados</h1>
+<h1 class="mb-5">Listado de Empleados</h1>
 {% endblock %}
 
 {% block contenido_que_cambia %}
 
 <ul>
+
     {% for empleado in empleados %}
-    <li>{{ empleado.nombre }}  {{ empleado.apellido }} -  {{ empleado.legajo }}</li>
+    <li>{{ empleado.nombre }}  {{ empleado.apellido }}</li>
+
+    <a class="btn btn-danger" href="{% url 'eliminarEmpleado'  empleado.id %}">Eliminar </a>
+    <a class="btn btn-success" href="{% url 'editarEmpleado'  empleado.id %}">Editar</a>
     {% endfor %}
 
 
 </ul>
+<h2>{{ mensaje }}</h2>
+<a class="btn btn-primary" href="{% url 'empleadoFormulario' %}">Agregar Empleado</a>
 {% endblock %}

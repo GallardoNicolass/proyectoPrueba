@@ -1,0 +1,25 @@
+{% extends "AppPrueba/padre.html" %}
+
+{% load static %}
+
+{% block titulo %}
+<h1 class="mb-5">EDITANDO EMPLEADO: {{ Empleado }} </h1>
+{% endblock %}
+
+{% block contenido_que_cambia %}
+
+<h3>{{ mensaje }}</h3>
+
+<form action="{% url 'editarEmpleado' Empleado.id %}" method="post"> {% csrf_token %}
+
+    <table>
+
+        {{ form.as_table }}
+
+    </table>
+
+    <input type="submit" value="Guardar cambios">
+
+    </form>
+
+{% endblock %}
