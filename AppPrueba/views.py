@@ -125,12 +125,20 @@ def eliminarEmpleado(request, id):
 
 
 def editarEmpleado(request, id):
-    empleado:Empleado.objects.get(id=id)
+    empleado = Empleado.objects.get(id=id)
     if request.method=="POST":
-        pass
+        form= EmpleadoForm(request.POST)
+        if form.is_valid():
+            info=form.cleaned_data
+            empleado.nombre=info["nombre"]
+            empleado.apellido=info["apellido"]
+            empleado.legajo=info["legajo"]
+            empleado.save()
+            empleados=Empleado.objects.all()
+            return render(request, "AppPrueba/empleados.html" ,{"empleados":empleados, "mensaje": "Empleado guardado correctamente"})
     else: 
-        formulario= EmpleadoForm(initial={"nombre":Empleado.nombre, "apellido":Empleado.apellido, "legajo":Empleado.legajo})
-        return render(request, "AppPrueba/editarEmpleado.html", {"form": formulario, "Empleado": Empleado})
+        formulario= EmpleadoForm(initial={"nombre":empleado.nombre, "apellido":empleado.apellido, "legajo":empleado.legajo})
+        return render(request, "AppPrueba/editarEmpleado.html", {"form": formulario, "empleado": empleado})
 
 
 
